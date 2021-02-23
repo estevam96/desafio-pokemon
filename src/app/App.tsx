@@ -1,12 +1,12 @@
 import React from 'react';
 import { ThemeProvider } from 'styled-components';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import GlobalStyle from './app/styles/GlobalStyle';
-import theme from './app/styles/theme';
-import Login from './app/pages/Login';
-import Home from './app/pages/Home';
-import PrivateRouter from './app/router/PrivateRouter';
-import ProvideAuth from './app/context/auth';
+import GlobalStyle from './styles/GlobalStyle';
+import theme from './styles/theme';
+import Login from './pages/Login';
+import Routes from './router';
+import ProvideAuth from './context/auth';
+import Navbar from './components/Navbar';
 
 const App: React.FC = () => {
   return (
@@ -18,9 +18,10 @@ const App: React.FC = () => {
             <Route path="/login">
               <Login />
             </Route>
-            <PrivateRouter exact path="/">
-              <Home />
-            </PrivateRouter>
+            <Route path="/">
+              <Navbar />
+              <Routes />
+            </Route>
           </Switch>
         </ProvideAuth>
       </Router>

@@ -2,12 +2,9 @@ import React, { useState } from 'react';
 import { Redirect, useHistory } from 'react-router-dom';
 import Pokelogo from '../../assets/pokeLogo.svg';
 import Input from '../../components/Input';
-import Content from './components/Content';
-import Form from './components/Form';
-import FormButton from './components/FormButton';
-import Title from './components/Title';
-import Wrapper from './components/Wrapper';
+
 import { useAuth } from '../../context/auth';
+import { Content, Form, FormButton, Title, Wrapper } from './components/Home';
 
 const Login: React.FC = () => {
   const { login, token } = useAuth();
@@ -16,11 +13,9 @@ const Login: React.FC = () => {
   const history = useHistory();
 
   function handleLogin(): void {
-    if (email === 'user' && password === '12345') {
+    if (email === 'user@email.com' && password === '12345') {
       login();
       history.replace('/home');
-    } else {
-      console.error('Erro');
     }
   }
 
